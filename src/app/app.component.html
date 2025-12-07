@@ -7,10 +7,23 @@
         <p>{{ currentDate | date : "fullDate" }}</p>
       </div>
     </header>
-    <p>New York: {{ currentTemperaturs.newYork | temp : "cel" : "fah" }}</p>
-    <p>Berlin: {{ currentTemperaturs.berlin | number : "1.1-2" }}</p>
-    <p>Paris: {{ currentTemperaturs.paris | number : "1.1-2" }}</p>
-    <p>Chicago: {{ currentTemperaturs.chicago | number : "1.1-2" }}</p>
+    <p>
+      New York:
+      <!-- You can chain pipes, although in this instance its not really helping anything -->
+      {{ currentTemperaturs.newYork | number : "1.1-2" | temp : "cel" : "fah" }}
+    </p>
+    <p>
+      Berlin:
+      {{ currentTemperaturs.berlin | number : "1.1-2" | temp : "cel" : "fah" }}
+    </p>
+    <p>
+      Paris:
+      {{ currentTemperaturs.paris | number : "1.1-2" | temp : "cel" : "fah" }}
+    </p>
+    <p>
+      Chicago:
+      {{ currentTemperaturs.chicago | number : "1.1-2" | temp : "cel" : "fah" }}
+    </p>
   </article>
 
   <article class="temperatures">
@@ -24,7 +37,7 @@
     <ul>
       @for (temperature of historicTemperatures; track temperature) {
       <li (click)="onReset($index)">
-        {{ temperature | temp : "cel" : "fah" }}
+        {{ temperature | number : "1.1-2" | temp : "cel" : "fah" }}
       </li>
       }
     </ul>
