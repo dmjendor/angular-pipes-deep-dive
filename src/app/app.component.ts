@@ -21,6 +21,10 @@ export class AppComponent {
   historicTemperatures = [
     25, 37, 19, -4, 28, 21, 19, 28, 33, 31, 9, 11, 5, -12, -5,
   ];
+  constructor() {
+    // You could avoid the need to use a sorting pipe, by just manually sorting the data in advance.
+    this.historicTemperatures.sort((a, b) => (a > b ? 1 : -1));
+  }
 
   onReset(index: number) {
     const newTemps = [...this.historicTemperatures];
